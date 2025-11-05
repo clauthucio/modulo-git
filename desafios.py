@@ -58,3 +58,38 @@ def gerar_relatorio_final(funcoes_concluidas):
     "Desafio concluído! 2 funções implementadas com sucesso."
     """
     pass
+
+def menu():
+    """
+    Exibe um menu simples para testar o programa.
+    Dica: use um while True e input() para ler opções do usuário.
+    """
+    while True:
+        print("\n--- MENU TO-DO ---")
+        print("1 - Mostrar mensagem inicial")
+        print("2 - Listar comandos Git básicos")
+        print("3 - Criar mensagem de commit")
+        print("4 - Verificar tag válida")
+        print("5 - Gerar relatório final")
+        print("0 - Sair")
+
+        opcao = input("Escolha: ")
+
+        if opcao == "1":
+            mostrar_mensagem_inicial()
+        elif opcao == "2":
+            listar_comandos_git_basicos()
+        elif opcao == "3":
+            funcao_nome = int(input("Nome da função: "))
+            criar_mensagem_commit(funcao_nome)
+        elif opcao == "4":
+            tag = int(input("Validar tag: "))
+            verificar_tag_valida(tag)
+        elif opcao == "5":
+            funcoes_concluidas = input("Listar funções implementadas: ")
+            gerar_relatorio_final(funcoes_concluidas)
+        elif opcao == "0":
+            print("Encerrando o programa...")
+            break
+        else:
+            print("Opção inválida! Tente novamente.")
