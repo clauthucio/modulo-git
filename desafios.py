@@ -44,7 +44,8 @@ def criar_mensagem_commit(funcao_nome):
     criar_mensagem_commit("listar_comandos_git_basicos") ->
     "Implementa função listar_comandos_git_basicos"
     """
-    pass
+    frase = f"Implementa função {funcao_nome}"
+    return frase
 
 
 def verificar_tag_valida(tag):
@@ -88,8 +89,8 @@ def menu():
         elif opcao == "2":
             print(listar_comandos_git_basicos())
         elif opcao == "3":
-            funcao_nome = int(input("Nome da função: "))
-            criar_mensagem_commit(funcao_nome)
+            funcao_nome = input("Nome da função: ")
+            print(criar_mensagem_commit(funcao_nome))
         elif opcao == "4":
             tag = int(input("Validar tag: "))
             verificar_tag_valida(tag)
