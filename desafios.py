@@ -13,6 +13,8 @@ Seu objetivo é:
 Boa sorte e bons commits! 🚀
 """
 
+import re  # Importando módulo re para uso em verificar_tag_valida
+
 def mostrar_mensagem_inicial():
     """
     Exibe uma mensagem de boas-vindas ao desafio.
@@ -53,7 +55,10 @@ def verificar_tag_valida(tag):
     Verifica se uma tag está no formato 'vX.Y' (ex: v1.0, v2.1).
     Retorna True se o formato for válido, caso contrário False.
     """
-    pass
+    if not isinstance(tag, str):
+        return False
+    tag = tag.strip()
+    return bool(re.fullmatch(r'v\d+\.\d+', tag))
 
 
 def gerar_relatorio_final(funcoes_concluidas):
@@ -71,7 +76,6 @@ def gerar_relatorio_final(funcoes_concluidas):
 def menu():
     """
     Exibe um menu simples para testar o programa.
-    Dica: use um while True e input() para ler opções do usuário.
     """
     while True:
         print("\n--- MENU TO-DO ---")
@@ -92,8 +96,8 @@ def menu():
             funcao_nome = input("Nome da função: ")
             print(criar_mensagem_commit(funcao_nome))
         elif opcao == "4":
-            tag = int(input("Validar tag: "))
-            verificar_tag_valida(tag)
+            tag = input("Validar tag: ")
+            print(verificar_tag_valida(tag))
         elif opcao == "5":
             funcoes_concluidas = input("Listar funções implementadas: ")
             gerar_relatorio_final(funcoes_concluidas)
