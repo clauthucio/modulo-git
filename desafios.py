@@ -70,8 +70,11 @@ def gerar_relatorio_final(funcoes_concluidas):
     gerar_relatorio_final(["mostrar_mensagem_inicial", "listar_comandos_git_basicos"])
     ->
     "Desafio concluído! 2 funções implementadas com sucesso."
-    """
-    pass
+    """ 
+    quantidade = len(funcoes_concluidas)
+    mensagem = f"Desafio concluído! {quantidade} funções implementadas com sucesso."
+    return mensagem
+    
 
 def menu():
     """
@@ -99,8 +102,14 @@ def menu():
             tag = input("Validar tag: ")
             print(verificar_tag_valida(tag))
         elif opcao == "5":
-            funcoes_concluidas = input("Listar funções implementadas: ")
-            gerar_relatorio_final(funcoes_concluidas)
+            lista = []
+            while True:
+                funcoes_concluidas = input("Listar funções implementadas (Digite 0 para Sair): ")
+                if funcoes_concluidas == "0":
+                    break
+                else:
+                    lista.append(funcoes_concluidas)
+            print(gerar_relatorio_final(lista))
         elif opcao == "0":
             print("Encerrando o programa...")
             break
